@@ -126,6 +126,7 @@ abstract class Listing
         $this->setExclusivity($xml->exclusivity && $xml->exclusivity->attributes() ? (string)$xml->exclusivity->attributes()->value : null);
         $this->setAuthority($xml->authority && $xml->authority->attributes() ? (string)$xml->authority->attributes()->value : null);
         $this->setUnderOffer($xml->underOffer && $xml->underOffer->attributes() ? strtolower((string)$xml->underOffer->attributes()->value) === 'yes' : null);
+        $this->setInspectionTimes($xml->inspectionTimes && $xml->inspectionTimes->inspection ? $xml->inspectionTimes->inspection : []);
     }
 
     public function hasActiveStatus()
